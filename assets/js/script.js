@@ -1,27 +1,37 @@
 
 let container = $('.container')
-let plannerRow = $('<div>')
-let saveBtn = $('<button>')
-let hour = $('<div>')
-let description = $('<textArea>')
-let timeBlock = $('<div>')
+
 let currentDay = $('#currentDay')
 
 let now = moment()
-saveBtn.attr('class', 'saveBtn')
-saveBtn.text('Save')
-hour.attr('class', 'hour')
-hour.text('12PM')
-description.attr('class', 'description')
-description.text('Placeholder')
-plannerRow.attr('class', 'row')
-timeBlock.attr('class', 'time-block')
-
-container.append(timeBlock)
-timeBlock.append(plannerRow)
-plannerRow.append(hour).append(description).append(saveBtn)
-
 time = now.format("dddd, MMMM Do YYYY, h:mm:ss a")
 currentDay.append(time)
 
-console.log(now.format("dddd, MMMM Do YYYY, h:mm:ss a"))
+
+
+
+for (var i = 0; i <= 8; i++) {
+    console.log('LOOPING')
+
+    
+ 
+    let plannerRow = $('<div>')
+    plannerRow.attr('class', 'row')
+
+    let hour = $('<div>')
+    hour.attr('class', 'hour')
+    hour.text('12PM')
+
+    let description = $('<textArea>')
+    description.attr('class', 'description')
+    description.text('Placeholder')
+
+    let saveBtn = $('<button>')
+    saveBtn.attr('class', 'saveBtn')
+    saveBtn.text('Save')
+
+    container.append(plannerRow.append(hour).append(description).append(saveBtn))
+}
+
+
+
