@@ -7,7 +7,6 @@ let container = $('.container')
 let currentDay = $('#currentDay')
 let rowState
 
-
 //Arrays
 let hours = []
 let hoursState = []
@@ -62,17 +61,24 @@ function dayScheduler() {
             description.attr('class', 'present')
         }
     }
-   // Click Event
-        $('.saveBtn').on('click', function(){
-         console.log($(this).attr('name'))
-         localStorage.setItem($(this).attr('name'), $('#' + $(this).attr('name')).val())
-     })
-}
+    // Pull from localstorage
+    for (let key in localStorage) {
+        if (typeof localStorage[key] === 'string') {
+            console.log(key + localStorage[key])
+            $('#' + key).val(localStorage[key])
+        }
+    }
+        // Click Event
+        $('.saveBtn').on('click', function () {
+            console.log($(this).attr('name'))
+            localStorage.setItem($(this).attr('name'), $('#' + $(this).attr('name')).val())
+        })
+    }
 
-// Initialize
-function init() {
-    currentDay.append(time)
-    dayScheduler()
-}
+    // Initialize
+    function init() {
+        currentDay.append(time)
+        dayScheduler()
+    }
 
-init()
+    init()
