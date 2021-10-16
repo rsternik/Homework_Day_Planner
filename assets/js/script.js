@@ -11,7 +11,6 @@ let rowState
 let hours = []
 let hoursState = []
 
-
 //Day Scheduler
 function dayScheduler() {
 
@@ -50,7 +49,7 @@ function dayScheduler() {
         //Appends rows and child elements to page
         container.append(plannerRow.append(hourEl).append(description).append(saveBtn))
 
-        //Styles textboxs 
+        //Style textboxs 
         if (rowState > now.format('HH A')) {
             description.attr('class', 'future')
         }
@@ -64,21 +63,20 @@ function dayScheduler() {
     // Pull from localstorage
     for (let key in localStorage) {
         if (typeof localStorage[key] === 'string') {
-            console.log(key + localStorage[key])
             $('#' + key).val(localStorage[key])
         }
     }
-        // Click Event
-        $('.saveBtn').on('click', function () {
-            console.log($(this).attr('name'))
-            localStorage.setItem($(this).attr('name'), $('#' + $(this).attr('name')).val())
-        })
-    }
+    // Click Event
+    $('.saveBtn').on('click', function () {
+        console.log($(this).attr('name'))
+        localStorage.setItem($(this).attr('name'), $('#' + $(this).attr('name')).val())
+    })
+}
 
-    // Initialize
-    function init() {
-        currentDay.append(time)
-        dayScheduler()
-    }
+// Initialize
+function init() {
+    currentDay.append(time)
+    dayScheduler()
+}
 
-    init()
+init()
