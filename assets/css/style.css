@@ -8,6 +8,7 @@ body {
   font-size: 16px;
   line-height: 1;
   background: var(--samgrad);
+  text-shadow: rgb(4, 29, 31) 0px 2px 2px;
 }
 
 textarea {
@@ -16,11 +17,13 @@ textarea {
   min-width: 80%;
   width: auto;
   color: black;
-  border-left: 2px solid black;
-  border-right: 2px solid black;
+  border-left: 2px solid white;
+  border-right: 2px solid white;
   padding-right: 0%;
   margin-right: 0%;
   padding: 10px;
+  text-shadow: rgb(0, 0, 0) 0px 2px 3px;
+  font-size: 1.05em;
 }
 
 .jumbotron {
@@ -44,7 +47,7 @@ textarea {
   display: flex;
   justify-content:space-around;
   white-space: pre-wrap;
-  border: 3px solid black;
+  border: 3px solid rgb(255, 255, 255);
   padding-left: 1%;
  
   border-radius: 15px;
@@ -71,21 +74,34 @@ textarea {
 }
 
 .future {
-  background-color: #f5e834;
-  color: black;
+  background-color: #bdb328;
+  color: rgb(255, 255, 255);
 }
 
 .saveBtn {
   border:none;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
-  background-color: #06aed5;
+  background-color: #06829e;
   color: white;
   font-size: 21px;
+  text-shadow: rgb(4, 29, 31) 0px 1px 2px;
 }
-
 .saveBtn:hover {
   font-size: 21px;
-  background-color: rgb(179, 236, 240);
-  color: black;
+  border:none;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  background-color: rgb(221, 245, 9);
+  text-shadow: rgb(65, 68, 33) 0px 2px 2px;
+  color: rgb(255, 255, 255);
+}
+.saveBtn:active {
+  font-size: 21px;
+  border:none;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  background-color: rgb(219, 14, 14);
+  text-shadow: rgb(42, 44, 20) 0px 2px 2px;
+  color: white;
 }
