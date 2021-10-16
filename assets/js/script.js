@@ -31,7 +31,7 @@ function dayScheduler() {
         // Hour pane
         let hourEl = $('<div>')
         hourEl.attr('class', 'hour')
-        hourEl.text(hours[i])
+        hourEl.text(hours[i] + " ")
 
         // Textbox pane
         description = $('<textArea>')
