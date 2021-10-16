@@ -3,7 +3,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Oxanium:wght@400;700&display=swap");
 body {
   --ox: "Oxanium";
-  --samgrad: rgb(138, 0, 0) linear-gradient(90deg, rgb(197, 215, 218) 0%, rgb(139, 219, 233) 50%, rgb(82, 150, 155) 100%);
+  --samgrad: rgb(6, 4, 121) linear-gradient(90deg, rgb(9, 11, 102) 0%, rgb(99, 100, 180) 50%, rgb(80, 127, 180) 100%);
   font-family: var(--ox);
   font-size: 16px;
   line-height: 1;
@@ -15,8 +15,11 @@ textarea {
   border: none;
   min-width: 80%;
   width: auto;
-  color: #000000;
-  border-left: 1px solid black;
+  color: black;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+  padding-right: 0%;
+  margin-right: 0%;
   padding: 10px;
 }
 
@@ -38,43 +41,51 @@ textarea {
 }
 
 .row {
+  display: flex;
+  justify-content:space-around;
   white-space: pre-wrap;
-  border-top: 1px solid black;
+  border: 3px solid black;
+  padding-left: 1%;
+ 
+  border-radius: 15px;
+  
+  margin: 1%; 
 }
 
 .hour {
   background-color: #ffffff;
   color: white;
-  border-top: 1px #000000;
   justify-self: center;
   align-self: center;
   background: transparent;
 }
 
 .past {
-  background-color: #d3d3d3;
+  background-color: #4ba6ca;
   color: white;
 }
 
 .present {
-  background-color: #ff6961;
-  color: white;
+  background-color: #e04f45;
+  color: black;
 }
 
 .future {
-  background-color: #77dd77;
-  color: white;
+  background-color: #f5e834;
+  color: black;
 }
 
 .saveBtn {
-  border-left: 1px solid black;
+  border:none;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
   background-color: #06aed5;
   color: white;
+  font-size: 21px;
 }
 
-.saveBtn i:hover {
-  font-size: 20px;
-  transition: all 0.3s ease-in-out;
+.saveBtn:hover {
+  font-size: 21px;
+  background-color: rgb(179, 236, 240);
+  color: black;
 }
