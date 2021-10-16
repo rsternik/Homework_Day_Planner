@@ -1,71 +1,78 @@
+// Moment Setup
+let now = moment()
+let time = now.format("dddd, MMMM Do YYYY, h:mm:ss a")
+
 // Variables
 let container = $('.container')
 let currentDay = $('#currentDay')
-plannerRow = $('<div>')
-// Moment Setup
-let now = moment()
-let timeFormat = now.format('h A')
-let hours = []
-let hourState = []
-let dayState = []
-let time = now.format("dddd, MMMM Do YYYY, h:mm:ss a")
+let rowState
 
-//Function
+
+//Arrays
+let hours = []
+let hoursState = []
+
+
 //Day Scheduler
 function dayScheduler() {
-    // Loop
-    // 
-    for (let hour = 00; hour < 24; hour++) {
+
+    // Schedule time(hours) & data-state(hoursState) array compilation 
+    for (let hour = 09; hour < 24; hour++) {
         hours.push(moment({ hour }).format('hh:mm A'))
-        hourState.push(moment({ hour }).format('H A'))   
+        hoursState.push(moment({ hour }).format('HH A'))
     }
-    // Loop 
-    // Element creation and display
+
+    // Row creation and display
     for (var i = 0; i <= 8; i++) {
-        // Elements & Attributes
         // Rows
         plannerRow = $('<div>')
         plannerRow.attr('class', 'row')
-        plannerRow.attr('data-state', hourState[i])
-        let rowState = plannerRow.attr('data-state')
-        
-        // Hour
+        plannerRow.attr('data-number', hoursState[i])
+        let rowState = plannerRow.attr('data-number')
+
+        // Hour pane
         let hourEl = $('<div>')
         hourEl.attr('class', 'hour')
         hourEl.text(hours[i])
-        // Text box
-        let description = $('<textArea>')
+
+        // Textbox pane
+        description = $('<textArea>')
         description.attr('class', 'description')
+        description.attr('id', [i])
+        description.attr('name', hoursState[i])
+
         // Save Button
         let saveBtn = $('<button>')
         saveBtn.attr('class', 'saveBtn')
+        saveBtn.attr('id', 'save')
+        saveBtn.attr('name', [i])
         saveBtn.text('Save')
-        // Element Output
+
+        //Appends rows and child elements to page
         container.append(plannerRow.append(hourEl).append(description).append(saveBtn))
-        //Styling rows with past, present, & future classes
-        if (rowState > now.format('H A')){
+
+        //Styles textboxs 
+        if (rowState > now.format('HH A')) {
             description.attr('class', 'future')
-            console.log('future')
         }
-        else if (rowState < now.format('H A')){
+        else if (rowState < now.format('HH A')) {
             description.attr('class', 'past')
-               console.log('past')
         }
         else {
             description.attr('class', 'present')
-               console.log('present')
         }
-
     }
-    // Click Event
-    document.addEventListener('click', function () {
-        console.log('hello')
-    })
+   // Click Event
+        $('.saveBtn').on('click', function(){
+         console.log($(this).attr('name'))
+         localStorage.setItem($(this).attr('name'), $('#' + $(this).attr('name')).val())
+     })
 }
-// Function
+
 // Initialize
 function init() {
     currentDay.append(time)
     dayScheduler()
 }
+
 init()
